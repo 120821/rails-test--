@@ -1,0 +1,43 @@
+Rails 测试还可以模拟浏览器请求，无需打开浏览器就能测试应用的响应。
+
+可以使用rake实用程序来测试应用程序。以下是几个重要命令。
+
+    $ rake测试 - 测试所有单元测试和功能测试（如果存在集成测试）。
+
+    $ rake test：functionals - 运行所有功能测试。(rake test:functionals)
+
+    $ rake test：units - 运行所有单元测试。
+
+    $ rake测试：集成 - 运行所有集成测试。
+
+    $ rake test：plugins - 运行所有测试./vendor/plugins/**/test。
+
+    $ rake test：recent - 运行在过去10分钟内修改的模型和控制器的测试 -
+
+    $ rake test：uncommitted - 对于Subversion中的项目，运行自上次提交以来在模型和控制器中发生的更改的测试 -
+
+使用 rails new application_name 命令创建一个 Rails 项目时，Rails 会生成 test 目录。如果列出这个目录里的内容，你会看到下述目录和文件:
+
+$ ls -F test
+
+controllers/           helpers/               mailers/               system/                test_helper.rb
+
+fixtures/              integration/           models/                application_system_test_case.rb
+
+创建新的APP：rails new test-rails-单元测试 --database=postgresql
+
+创建model：bin/rails generate model article title:string body:text
+
+进入console：rails console
+
+查看环境：Rails.env
+
+    Rails.env.test?
+
+用test环境启动server：rails s -e test
+
+查看test命令：rake -T test
+
+rake test:system
+
+
